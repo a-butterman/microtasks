@@ -4,6 +4,7 @@ import {Map} from './lessons/Map/Map';
 import {MapTable} from './lessons/Map/MapTable';
 import {Button} from "./lessons/Button/Button";
 import {UseState} from "./lessons/UseState/UseState";
+import {Filter} from "./lessons/Filter/Filter";
 
 const students = [
     {id: 1, name: "James", age: 8},
@@ -32,7 +33,8 @@ const App = () => {
             {/*<Map students={students}/>*/}
             {/*<MapTable cars={topCars}/>*/}
             {/*<Button/>*/}
-            <UseState/>
+            {/*<UseState/>*/}
+            <Filter/>
         </>
     );
 }
