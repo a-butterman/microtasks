@@ -14,17 +14,17 @@ export const YourselfFilter2 = () => {
 		{id: 8, banknots: 'RUBLS', value: 50, number: ' v1234567890'},
 	]);
 
-	let copyMoney = money;
+	let copyMoney = [...money];
 	const [filter, setFilter] = useState<FilterPropsType>("all")
 	if (filter === "rub") {
-		copyMoney = copyMoney.filter(it => it.banknots === 'RUBLS');
+		copyMoney = copyMoney.filter((it) => it.banknots === 'RUBLS');
 	}
 	if (filter === "usd") {
-		copyMoney = copyMoney.filter(it => it.banknots === 'Dollars')
+		copyMoney = copyMoney.filter((it) => it.banknots === 'Dollars')
 	}
 
 	const deleteIt = (id: number) => {
-		setMoney(money.filter(idMoney => idMoney.id !== id))
+		setMoney(copyMoney.filter((idMoney) => idMoney.id !== id))
 	}
 
 	return (
