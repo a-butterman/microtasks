@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import {YourselfFilter} from "./yourselfFilter";
+import {YourselfFilter1} from "./yourselfFilter1";
+import {YourselfFilter2} from "./yourselfFilter2";
 
 type FilterType = 'all' | 'dollars' | 'rubles'
 
@@ -33,7 +35,9 @@ export const Filter = () => {
 
     return (
         <>
-            <YourselfFilter/>
+            {/*<YourselfFilter/>*/}
+            {/*<YourselfFilter1/>*/}
+            <YourselfFilter2/>
             {/*<div style={{margin: '20px 0 0 40px'}}>*/}
             {/*    <button onClick={() => onClickFilterHandler('all')}>All</button>*/}
             {/*    <button onClick={() => onClickFilterHandler('dollars')}>Dollars</button>*/}
