@@ -14,34 +14,36 @@ export const YourselfFilter2 = () => {
 		{id: 8, banknots: 'RUBLS', value: 50, number: ' v1234567890'},
 	]);
 
-	let copyMoney = [...money];
-	const [filter, setFilter] = useState<FilterPropsType>("all")
+	let cloneMoney = [...money];
+	let [filter, setFilter] = useState<FilterPropsType>('all')
 	if (filter === "rub") {
-		copyMoney = copyMoney.filter((it) => it.banknots === 'RUBLS');
+		cloneMoney = cloneMoney.filter((el) => el.banknots === 'RUBLS')
 	}
-	if (filter === "usd") {
-		copyMoney = copyMoney.filter((it) => it.banknots === 'Dollars')
+	if (filter === 'usd') {
+		cloneMoney = cloneMoney.filter((el) => el.banknots === 'Dollars')
 	}
 
-	const deleteIt = (id: number) => {
-		setMoney(copyMoney.filter((idMoney) => idMoney.id !== id))
+
+
+	const deleteEl = (elId: number) => {
+		setMoney(cloneMoney.filter((el) => el.id !== elId))
 	}
 
 	return (
 		<>
 			<div style={{margin: '20px 0 0 40px'}}>
-				<button onClick={() => setFilter('all')} style={{marginRight: '15px'}}>ALL</button>
-				<button onClick={() => setFilter('rub')} style={{marginRight: '15px'}}>RUB</button>
-				<button onClick={() => setFilter('usd')} style={{marginRight: '15px'}}>USD</button>
+				<button onClick={() => setFilter("all")} style={{marginRight: '15px'}}>ALL</button>
+				<button onClick={() => setFilter("rub")} style={{marginRight: '15px'}}>RUB</button>
+				<button onClick={() => setFilter("usd")} style={{marginRight: '15px'}}>USD</button>
 			</div>
 			<ul>
-				{copyMoney.map((el) => {
+				{cloneMoney.map((el) => {
 					return (
-						<li>
-							<button onClick={() => deleteIt(el.id)} style={{marginRight: '15px'}}>x</button>
+						<li key={el.id}>
+							<button onClick={() => deleteEl(el.id)} style={{marginRight:'15px'}}>x</button>
 							<span>{el.banknots} - </span>
 							<span>{el.value} - </span>
-							<span>{el.number}</span>
+							<span>[ {el.number} ]</span>
 						</li>
 					)
 				})}
@@ -49,3 +51,67 @@ export const YourselfFilter2 = () => {
 		</>
 	);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//
+	// let copyMoney = [...money];
+	// const [filter, setFilter] = useState<FilterPropsType>("all")
+	// if (filter === "rub") {
+	// 	copyMoney = copyMoney.filter((it) => it.banknots === 'RUBLS');
+	// }
+	// if (filter === "usd") {
+	// 	copyMoney = copyMoney.filter((it) => it.banknots === 'Dollars')
+	// }
+	//
+	// const deleteIt = (id: number) => {
+	// 	setMoney(copyMoney.filter((idMoney) => idMoney.id !== id))
+	// }
+	//
+	// return (
+	// 	<>
+	// 		<div style={{margin: '20px 0 0 40px'}}>
+	// 			<button onClick={() => setFilter('all')} style={{marginRight: '15px'}}>ALL</button>
+	// 			<button onClick={() => setFilter('rub')} style={{marginRight: '15px'}}>RUB</button>
+	// 			<button onClick={() => setFilter('usd')} style={{marginRight: '15px'}}>USD</button>
+	// 		</div>
+	// 		<ul>
+	// 			{copyMoney.map((el) => {
+	// 				return (
+	// 					<li>
+	// 						<button onClick={() => deleteIt(el.id)} style={{marginRight: '15px'}}>x</button>
+	// 						<span>{el.banknots} - </span>
+	// 						<span>{el.value} - </span>
+	// 						<span>{el.number}</span>
+	// 					</li>
+	// 				)
+	// 			})}
+	// 		</ul>
+	// 	</>
+	// );
+// }
