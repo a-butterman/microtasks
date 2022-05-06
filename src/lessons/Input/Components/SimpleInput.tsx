@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 
 type SimpleInputPropsType = {
-	collBack: () => void,
+	title: string,
+	setTitle: (title: string) => void,
 }
+
 
 export const SimpleInput = (props: SimpleInputPropsType) => {
 
-	const onChangeInputHandler = () => {
-		props.collBack()
+	const onChangeInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
+		props.setTitle(event.currentTarget.value)
 	}
 
 	return (
-		<input onChange={onChangeInputHandler}/>
+		<input value={props.title} onChange={onChangeInputHandler}/>
 	);
 };

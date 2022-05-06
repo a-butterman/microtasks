@@ -10,18 +10,35 @@ export const Input = () => {
 		{message: 'Broad'},
 	])
 
+	// =========== SimpleInput && SimpleButton ============
+	let [title, setTitle] = useState('');
+
+	const collBackSimpleButtonHandler = () => {
+		let newMessage = {message: title};
+		setMessage([newMessage, ...message]);
+		setTitle('');
+	}
+	// ====================================================
+
+
+
+
+	// ================== FullInput ======================
 	// const addMessage = (newMessage: string) => {
 	// 	let newMessages = {message: newMessage};
 	// 	setMessage([newMessages, ...message])
 	// }
+	// ==================================================
+
+
 
 	return (
 		<div>
 
 			<div style={{margin: '20px 0 0 40px'}}>
 				{/*<FullInput addMessage={addMessage}/>*/}
-				<SimpleInput collBack={ () => {} }/>
-				<SimpleButton collBack={ () => {} } name={'+'} />
+				<SimpleInput title={title} setTitle={setTitle} />
+				<SimpleButton collBack={collBackSimpleButtonHandler} name={'+'} />
 			</div>
 
 			{message.map((el, index) => {

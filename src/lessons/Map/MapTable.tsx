@@ -14,7 +14,7 @@ export const MapTable = (props: CarsPropsType) => {
     return (
         <div>
             <table>
-                {props.cars.map((objectFromCarsType) => {
+                {props.cars.map((objectFromCarsType, index) => {
                     return (
                         <tr>
                             <td>
